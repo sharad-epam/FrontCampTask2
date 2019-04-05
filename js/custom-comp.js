@@ -3,7 +3,6 @@ class ResultInfo extends HTMLElement {
     super();
     const shadow = this.attachShadow({ mode: "open" });
     const wrapper = document.createElement("div");
-    wrapper.setAttribute("class", "container");
 
     const author = document.createElement("h1");
     author.setAttribute("class", "author");
@@ -28,7 +27,7 @@ class ResultInfo extends HTMLElement {
     this.hasAttribute("img") ? (imgUrl = this.getAttribute("img")) : "No Image";
 
     let pic = document.createElement("img");
-    publish.setAttribute("class", "pic");
+    pic.setAttribute("class", "pic");
     pic.src = imgUrl;
     img.appendChild(pic);
 
@@ -42,12 +41,6 @@ class ResultInfo extends HTMLElement {
       .author {
         text-align: center;
         border-bottom: 5px solid #dfe6e9;
-      }
-      .pic {
-        width: 250px;
-        height: 200px;
-        border-radius: 6%;
-        margin: 10px;
       }
       .title {
         font-size: 20px;
@@ -74,8 +67,7 @@ class ResultInfo extends HTMLElement {
       }
       
     `;
-
-    let news = document.createElement("li");
+    let news = document.createElement("div");
     shadow.appendChild(style);
     console.log(style.isConnected);
     shadow.appendChild(wrapper);
@@ -89,4 +81,4 @@ class ResultInfo extends HTMLElement {
   }
 }
 
-customElements.define("result-info", ResultInfo, { extends: "ul" });
+customElements.define("result-info", ResultInfo);
